@@ -56,6 +56,7 @@ static int sixfive(char *file)
             sep = c;
         }
     }
+    close(fd);
     return (0);
 }
 
