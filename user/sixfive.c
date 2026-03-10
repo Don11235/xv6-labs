@@ -31,32 +31,39 @@ static int read_full_number(char *c, int *ret, int fd)
     return (nb);
 }
 
+static int sixfive(char *file)
+{
+    char sep = 0;
+    char c;
+    int nb;
+    int ret = 1;
+    int fd = open(file, O_RDONLY);
+
+    if (fd == -1)
+        return (1);
+
+    while (read(fd, &c, 1) > 0)
+    {
+        if (is_number(c))
+        {
+            nb = read_full_number(&c, &ret, fd);
+            if (is_seperator(sep) && (is_seperator(c) || ret == 0) && (nb % 5 == 0 || nb % 6 == 0))
+                printf("%d\n", nb);
+            sep = c;
+        }
+        else 
+        {
+            sep = c;
+        }
+    }
+    return (0);
+}
+
 int main(int argc, char *argv[])
 {
-    if (argc == 2)
+    for (int i = 1; i < argc; i++)
     {
-        char sep = 0;
-        char c;
-        int nb;
-        int ret = 1;
-        int fd = open(argv[1], O_RDONLY);
-
-        if (fd == -1)
-            return (0);
-
-        while (read(fd, &c, 1) > 0)
-        {
-            if (is_number(c))
-            {
-                nb = read_full_number(&c, &ret, fd);
-                if (is_seperator(sep) && (is_seperator(c) || ret == 0) && (nb % 5 == 0 || nb % 6 == 0))
-                    printf("%d\n", nb);
-                sep = c;
-            }
-            else 
-            {
-                sep = c;
-            }
-        } 
+        if (sixfive(argv[i]))
+            return (1);
     }
 }
