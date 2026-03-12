@@ -61,5 +61,39 @@ void
 memdump(char *fmt, char *data)
 {
   // Your code here.
+  char *ptr = data;
+
+  for (int i = 0; fmt[i]; i++)
+  {
+    if (fmt[i] == 'i')
+    {
+      printf("%d\n", *((int *)ptr));
+      ptr = ptr + 4;
+    }
+    else if (fmt[i] == 'p')
+    {
+      printf("%lx\n", *((uint64 *)ptr));
+      ptr = ptr + 8;
+    }
+    else if (fmt[i] == 'h')
+    {
+      printf("%d\n", *((uint16 *)ptr));
+      ptr = ptr + 2;
+    }
+    else if (fmt[i] == 'c')
+    {
+      printf("%c\n", *ptr);
+      ptr = ptr + 1;
+    }
+    else if (fmt[i] == 's')
+    {
+      printf("%s\n", (char *)(*((uint64 *)ptr)));
+      ptr = ptr + 8;
+    }
+    else if (fmt[i] == 'S')
+    {
+      printf("%s\n", ptr);
+    }
+  }
 
 }
