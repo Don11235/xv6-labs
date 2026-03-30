@@ -11,3 +11,7 @@ This repository contains notes and explanations of the xv6 labs I solved, organi
 2. **sixfive (moderate)**
    - Reads numbers from files and prints multiples of 5 or 6.
    - Learn about file I/O, string parsing, and separator handling in user programs.
+
+3. **memdump (moderate)**
+   - Implements a function that reads raw memory and prints it according to a format string.
+   - Learn about C pointers, pointer casting, and how to interpret raw bytes as different types.
