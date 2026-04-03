@@ -12,6 +12,7 @@ by simply describing its layout as a format string.
 
 ### 1. Variable
 - A variable is a `named` region of memory with a `type`, that stores a value.
+  
 - Three things define a variable:
   
 - **name** — how you refer to it in code (`x`, `ptr`, `data`)
