@@ -11,7 +11,7 @@ by simply describing its layout as a format string.
 ## Concepts Practiced
 
 ### 1. Variable
-- definition
+- A variable is a `named` region of memory with a `type`, that stores a value.
 - reference (K&R)
 
 ### 2. Memory
