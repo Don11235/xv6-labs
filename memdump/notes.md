@@ -15,7 +15,7 @@ by simply describing its layout as a format string.
   
 - Three things define a variable:
   
-- **name** — how you refer to it in code (`x`, `ptr`, `data`)
+- name — how you refer to it in code (`x`, `ptr`, `data`)
 - **type** — tells the compiler how many bytes to reserve and how to interpret them
 - **value** — the actual content stored in those bytes
 
