@@ -49,7 +49,28 @@ your code  →  virtual address  →  MMU  →  physical address  →  RAM
 Each layer hides complexity from the layer above — this is called abstraction.
 
 ### 3. Pointer
-...
+Most people define a pointer as "an address" — this is incorrect.
+
+A pointer is a variable whose value is an address of a location in memory.
+
+The difference matters because a pointer has TWO addresses involved:
+
+- its **own address** — where the pointer variable itself lives in memory
+- its **value** — the address it holds, pointing to another location
+
+Example:
+
+int x = 42;
+int *p = &x;
+
+p has its own address in memory        (where p lives)
+p holds the address of x as its value  (what p points to)
+
+A pointer is a variable first. It just happens to store an 
+address as its value instead of a number or character.
+
+**Reference:** K&R Section 5.1 — "A pointer is a variable that 
+contains the address of a variable."
 
 ### 4. Pointer casting
 ...
