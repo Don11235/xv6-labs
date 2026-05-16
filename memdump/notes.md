@@ -97,3 +97,17 @@ and casts it to different types depending on the format character:
 'p'  →  *((uint64 *)ptr)  reads 8 bytes as hex
 ```
 ### 5. Pointer arithmetic
+Pointer arithmetic is a way to move a pointer forward or backward 
+in memory. The movement is based on the size of the type it points to.
+```
+char *p  →  p + 1  moves 1 byte
+int  *p  →  p + 1  moves 4 bytes
+```
+This is exactly why in memdump we use char *ptr as the base pointer — because char is 1 byte, so we have full control over exactly how many bytes we move:
+```
+ptr += 4;  // move exactly 4 bytes after reading 'i'
+ptr += 2;  // move exactly 2 bytes after reading 'h'
+ptr += 1;  // move exactly 1 byte  after reading 'c'
+ptr += 8;  // move exactly 8 bytes after reading 'p'
+```
+If ptr was int * instead of char *, ptr += 1 would move 4 bytes and we would lose control of the exact byte position.
