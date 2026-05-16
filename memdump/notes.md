@@ -81,10 +81,10 @@ Casting it to `int *` means we now read 4 bytes instead of 1:
 
 char c = 'A';
 char *p = &c;
-
+```
 *p           →  reads 1 byte   (char)
 *((int *)p)  →  reads 4 bytes  (int)
-
+```
 The address did not change. The bytes in memory did not change.
 Only the interpretation changed.
 
