@@ -73,6 +73,27 @@ address as its value instead of a number or character.
 contains the address of a variable."
 
 ### 4. Pointer casting
-...
+When we cast a pointer we change how the program interprets the bytes 
+at that address.
+
+For example, a pointer points to a `char` variable (1 byte). 
+Casting it to `int *` means we now read 4 bytes instead of 1:
+
+char c = 'A';
+char *p = &c;
+
+*p           →  reads 1 byte   (char)
+*((int *)p)  →  reads 4 bytes  (int)
+
+The address did not change. The bytes in memory did not change.
+Only the interpretation changed.
+
+This is exactly what memdump uses — it receives a raw `char *` buffer 
+and casts it to different types depending on the format character:
+
+'i'  →  *((int *)ptr)     reads 4 bytes as integer
+'h'  →  *((uint16 *)ptr)  reads 2 bytes as short
+'c'  →  *ptr              reads 1 byte  as character
+'p'  →  *((uint64 *)ptr)  reads 8 bytes as hex
 
 ### 5. Pointer arithmetic
