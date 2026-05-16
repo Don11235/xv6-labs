@@ -90,10 +90,10 @@ Only the interpretation changed.
 
 This is exactly what memdump uses — it receives a raw `char *` buffer 
 and casts it to different types depending on the format character:
-
+```
 'i'  →  *((int *)ptr)     reads 4 bytes as integer
 'h'  →  *((uint16 *)ptr)  reads 2 bytes as short
 'c'  →  *ptr              reads 1 byte  as character
 'p'  →  *((uint64 *)ptr)  reads 8 bytes as hex
-
+```
 ### 5. Pointer arithmetic
