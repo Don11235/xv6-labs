@@ -15,3 +15,7 @@ This repository contains notes and explanations of the xv6 labs I solved, organi
 3. **memdump (easy)**
    - Implements a function that reads raw memory and prints it according to a format string.
    - Learn about C pointers, pointer casting, and how to interpret raw bytes as different types.
+
+4. **find (moderate)**
+   - Implements a simple version of the UNIX `find` program that searches a directory tree for files with a specific name.
+   - Learn about directory traversal, recursion, system calls (`open`, `read`, `fstat`).
