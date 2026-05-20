@@ -96,7 +96,7 @@ find(path, fileName):
 ```
 
 ## Helper Functions
-
+```
 getname(path, name)
     extracts the filename from a full path
     walks backward from end of path until it finds '/'
@@ -108,3 +108,4 @@ match(fileName, name)
 joinpath(path, name, fullPath)
     builds a new path:  path + "/" + name
     checks it does not exceed MAXPATH
+```
