@@ -94,3 +94,17 @@ find(path, fileName):
            build full path:  path + "/" + entry.name
            call find(fullPath, fileName)  ← recursion
 ```
+
+## Helper Functions
+
+getname(path, name)
+    extracts the filename from a full path
+    walks backward from end of path until it finds '/'
+
+match(fileName, name)
+    compares two strings character by character
+    returns 0 if equal (like strcmp)
+
+joinpath(path, name, fullPath)
+    builds a new path:  path + "/" + name
+    checks it does not exceed MAXPATH
