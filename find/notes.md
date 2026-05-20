@@ -76,7 +76,7 @@ Ignoring this caused bugs in my first attempt — the program would
 try to process empty entries as real files.
 
 ## Implementation Strategy
-
+```
 find(path, fileName):
     1. open(path)
     2. fstat(path) → get file type
@@ -93,3 +93,4 @@ find(path, fileName):
                - name == ".."     (parent directory)
            build full path:  path + "/" + entry.name
            call find(fullPath, fileName)  ← recursion
+```
