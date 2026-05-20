@@ -46,3 +46,4 @@ Every recursion has two parts:
 Without the base case, the function calls itself forever until the 
 stack overflows and the program crashes.
 
+![Recursion](recursion_diagram.svg)
