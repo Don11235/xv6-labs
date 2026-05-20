@@ -74,3 +74,22 @@ if (de.inum == 0)
 
 Ignoring this caused bugs in my first attempt — the program would 
 try to process empty entries as real files.
+
+## Implementation Strategy
+
+find(path, fileName):
+    1. open(path)
+    2. fstat(path) → get file type
+
+    3. if T_FILE:
+           extract name from path
+           if name matches fileName → print path
+
+    4. if T_DIR:
+           read entries one by one (struct dirent)
+           skip if:
+               - inum == 0        (empty slot)
+               - name == "."      (current directory)
+               - name == ".."     (parent directory)
+           build full path:  path + "/" + entry.name
+           call find(fullPath, fileName)  ← recursion
