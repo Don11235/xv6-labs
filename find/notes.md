@@ -27,13 +27,13 @@ Recursion is a technique to solve problems where a big problem is
 built from smaller subproblems of the same kind.
 
 Example: sum from 1 to 100
-
+```
 1
 1 + 2
 1 + 2 + 3
 ...
 1 + 2 + ... + 100
-
+```
 Each step is the same problem but with a smaller size. So instead 
 of solving it all at once, we call the same function with a smaller 
 input each time.
