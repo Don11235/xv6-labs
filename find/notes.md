@@ -47,3 +47,30 @@ Without the base case, the function calls itself forever until the
 stack overflows and the program crashes.
 
 ![Recursion](recursion_diagram.svg)
+
+### 2. Directories
+
+A directory is just a file that stores a list of entries. Each entry 
+describes a file inside that directory. In xv6, each entry is a 
+`struct dirent` with two fields (real UNIX systems may have more):
+
+```c
+struct dirent {
+    ushort inum;        // inode number (0 = empty slot)
+    char name[DIRSIZ];  // file name (max 14 chars in xv6)
+};
+```
+
+To read a directory, you open it like a regular file and read 
+`struct dirent` entries one by one.
+
+One thing I discovered during this exercise: not every slot is used.
+Empty slots have `inum == 0` and must be skipped:
+
+```c
+if (de.inum == 0)
+    continue;
+```
+
+Ignoring this caused bugs in my first attempt — the program would 
+try to process empty entries as real files.
